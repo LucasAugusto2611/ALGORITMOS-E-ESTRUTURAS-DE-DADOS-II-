@@ -1,6 +1,6 @@
 # Repositório de Algoritimos e estruturas de dados II
 
-Bem-vindo ao meu repositório! Este espaço foi criado para armazenar e compartilhar os trabalhos acadêmicos que desenvolvi durante minha jornada na faculdade.
+Bem-vindo ao meu repositório! Sou Lucas Augusto Salviano Câmara,faço o curso de CeT E sou da turma 1 de algoritimos e estruturas de dado II. Este espaço foi criado para armazenar e compartilhar os trabalhos acadêmicos que desenvolvi durante minha jornada na disciplina.
 
 ## Objetivo
 
