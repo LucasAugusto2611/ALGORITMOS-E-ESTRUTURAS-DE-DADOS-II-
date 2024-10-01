@@ -18,6 +18,7 @@ O repositório está organizado da seguinte forma:
 - `Artigos/`: Inclui artigos e ensaios escritos.
 - `Apresentações/`: Armazena slides e materiais de apresentação.
 - `Referências/`: Links e documentos que foram utilizados como base para os trabalhos.
+- 'U1T1/':Tarefas realizadas.
 ---
 
 Sinta-se à vontade para explorar e espero que encontre conteúdo útil!
