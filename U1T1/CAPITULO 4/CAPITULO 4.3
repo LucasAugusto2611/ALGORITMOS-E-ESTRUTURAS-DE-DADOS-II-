@@ -1,0 +1,37 @@
+import networkx as nx
+
+# Hipergrafo representado como uma lista de hipereedges
+hyperedges = [
+    {'A', 'B', 'C'},
+    {'B', 'D'},
+    {'C', 'D', 'E'}
+]
+
+# 1. Transformando para uma rede unipartida
+unipartite_graph = nx.Graph()
+
+# Adicionando arestas a partir das hipereedges
+for hyperedge in hyperedges:
+    nodes = list(hyperedge)
+    for i in range(len(nodes)):
+        for j in range(i + 1, len(nodes)):
+            unipartite_graph.add_edge(nodes[i], nodes[j])
+
+# Mostrando a rede unipartida
+print("Rede Unipartida:")
+print(unipartite_graph.edges())
+
+# 2. Transformando em uma rede bipartida
+bipartite_graph = nx.Graph()
+
+# Adicionando nós para as hipereedges
+for i, hyperedge in enumerate(hyperedges):
+    hyperedge_node = f'Hiperegrafo{i+1}'
+    for node in hyperedge:
+        bipartite_graph.add_node(node, bipartite=0)  # Tipo 1: nós originais
+        bipartite_graph.add_node(hyperedge_node, bipartite=1)  # Tipo 2: hipereedges
+        bipartite_graph.add_edge(node, hyperedge_node)
+
+# Mostrando a rede bipartida
+print("Rede Bipartida:")
+print(bipartite_graph.edges())
