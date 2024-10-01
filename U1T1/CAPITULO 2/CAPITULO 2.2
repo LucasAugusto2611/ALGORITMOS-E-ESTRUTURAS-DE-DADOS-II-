@@ -1,0 +1,84 @@
+Para resolver esse problema, vamos usar o Teorema de Bayes para calcular a quantidade de e-mails que, apesar de estarem na caixa de spam, podem ser não-spam. Vamos organizar as informações:
+
+### Informações dadas:
+- **P(Spam)**: 60% dos e-mails são spam. Portanto, \( P(Spam) = 0.6 \) e \( P(Not \, Spam) = 0.4 \).
+- **Precisão do filtro**:
+  - Se um e-mail é spam, a probabilidade de o filtro marcar como spam (verdadeiro positivo) é 98%. Assim, \( P(Flagged \, as \, Spam | Spam) = 0.98 \).
+  - Se um e-mail não é spam, a probabilidade de o filtro marcar como não spam (verdadeiro negativo) é 98%. Portanto, \( P(Flagged \, as \, Spam | Not \, Spam) = 0.02 \).
+
+### Objetivo
+Precisamos calcular \( P(Not \, Spam | Flagged \, as \, Spam) \), ou seja, a probabilidade de que um e-mail que foi marcado como spam seja, na verdade, não spam.
+
+### Aplicando o Teorema de Bayes
+O Teorema de Bayes é dado por:
+
+\[
+P(A | B) = \frac{P(B | A) \cdot P(A)}{P(B)}
+\]
+
+onde:
+- \( A \) é o evento "e-mail não é spam".
+- \( B \) é o evento "e-mail é marcado como spam".
+
+### Cálculo
+1. **Calculando \( P(Flagged \, as \, Spam) \)**:
+   Precisamos calcular \( P(Flagged \, as \, Spam) \):
+
+\[
+P(Flagged \, as \, Spam) = P(Flagged \, as \, Spam | Spam) \cdot P(Spam) + P(Flagged \, as \, Spam | Not \, Spam) \cdot P(Not \, Spam)
+\]
+
+Substituindo os valores:
+
+\[
+P(Flagged \, as \, Spam) = (0.98 \cdot 0.6) + (0.02 \cdot 0.4)
+\]
+
+Calculando cada parte:
+
+- Para os e-mails spam:
+  \[
+  0.98 \cdot 0.6 = 0.588
+  \]
+  
+- Para os e-mails não spam:
+  \[
+  0.02 \cdot 0.4 = 0.008
+  \]
+
+Portanto:
+\[
+P(Flagged \, as \, Spam) = 0.588 + 0.008 = 0.596
+\]
+
+2. **Agora calculando \( P(Not \, Spam | Flagged \, as \, Spam) \)**:
+Substituindo no Teorema de Bayes:
+
+\[
+P(Not \, Spam | Flagged \, as \, Spam) = \frac{P(Flagged \, as \, Spam | Not \, Spam) \cdot P(Not \, Spam)}{P(Flagged \, as \, Spam)}
+\]
+
+Substituindo os valores:
+
+\[
+P(Not \, Spam | Flagged \, as \, Spam) = \frac{0.02 \cdot 0.4}{0.596}
+\]
+
+Calculando o numerador:
+
+\[
+0.02 \cdot 0.4 = 0.008
+\]
+
+Portanto:
+\[
+P(Not \, Spam | Flagged \, as \, Spam) = \frac{0.008}{0.596} \approx 0.0134
+\]
+
+### Quantidade de e-mails não spam
+Se você tem 963 e-mails marcados como spam, a quantidade esperada de e-mails não spam entre esses é:
+
+approx 12.9
+
+
+Arredondando, podemos dizer que aproximadamente **13 e-mails** na sua caixa de spam podem ser não spam.
