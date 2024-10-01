@@ -1,0 +1,34 @@
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+import networkx as nx
+
+# Exemplo de dados
+data = {
+    'Vetor1': [0.1, 0.2, 0.3],
+    'Vetor2': [0.2, 0.3, 0.4],
+    'Vetor3': [0.3, 0.5, 0.1],
+}
+
+df = pd.DataFrame(data)
+
+# Calculando a matriz de correlação
+correlation_matrix = df.corr()
+
+# Criando um grafo
+G = nx.Graph()
+
+# Adicionando nós e arestas com pesos positivos
+for i in range(len(correlation_matrix)):
+    for j in range(i + 1, len(correlation_matrix)):
+        weight = correlation_matrix.iloc[i, j]
+        if weight > 0:  # Ignorando pesos negativos
+            G.add_edge(correlation_matrix.index[i], correlation_matrix.index[j], weight=weight)
+
+# Desenhando o grafo
+pos = nx.spring_layout(G)  # Posição dos nós
+nx.draw(G, pos, with_labels=True)
+labels = nx.get_edge_attributes(G, 'weight')
+nx.draw_networkx_edge_labels(G, pos, edge_labels=labels)
+
+plt.show()
