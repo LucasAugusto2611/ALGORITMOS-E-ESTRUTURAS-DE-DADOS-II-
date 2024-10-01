@@ -1,0 +1,34 @@
+import pandas as pd
+import networkx as nx
+
+# Exemplo de dados
+data = {
+    'source': ['A', 'B', 'C', 'A', 'D'],
+    'target': ['B', 'C', 'D', 'C', 'A'],
+    'first_snapshot': [1, 1, 2, 4, 3],
+    'last_snapshot': [3, 4, 5, 5, 6]
+}
+
+# Criando um DataFrame
+df = pd.DataFrame(data)
+
+# Definindo a janela de tamanho 3
+def get_windows(start, end, window_size):
+    return [(i, i + window_size - 1) for i in range(start, end + 1, window_size)]
+
+# Criando janelas disjuntas
+windows = get_windows(df['first_snapshot'].min(), df['last_snapshot'].max(), 3)
+
+# Inicializando o grafo agregador
+aggregated_graph = nx.Graph()
+
+# Iterando sobre cada janela
+for window_start, window_end in windows:
+    # Verificando quais arestas estão presentes na janela
+    for _, row in df.iterrows():
+        if (row['first_snapshot'] <= window_end) and (row['last_snapshot'] >= window_start):
+            aggregated_graph.add_edge(row['source'], row['target'])
+
+# Mostrando a rede agregada
+print("Rede Agregada:")
+print(aggregated_graph.edges())
