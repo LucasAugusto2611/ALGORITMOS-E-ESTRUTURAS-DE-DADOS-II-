@@ -1,4 +1,4 @@
-# Repositório de Trabalhos da Faculdade
+# Repositório de Algoritimos e estruturas de dados II
 
 Bem-vindo ao meu repositório! Este espaço foi criado para armazenar e compartilhar os trabalhos acadêmicos que desenvolvi durante minha jornada na faculdade.
 
