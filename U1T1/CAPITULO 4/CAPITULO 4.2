@@ -1,0 +1,44 @@
+import pandas as pd
+import networkx as nx
+
+# Supondo que você tenha os dados em um DataFrame
+data = {
+    'source': ['A', 'A', 'B', 'C', 'D', 'E'],
+    'target': ['B', 'C', 'C', 'D', 'E', 'A'],
+    'edge_type': [1, 1, 1, 'C', 'C', 'C']
+}
+
+df = pd.DataFrame(data)
+
+# Criando o grafo
+G = nx.Graph()
+
+# Adicionando arestas ao grafo
+for index, row in df.iterrows():
+    G.add_edge(row['source'], row['target'], edge_type=row['edge_type'])
+
+# Analisando o acoplamento
+degree_dict = dict(G.degree())
+
+# Verificando acoplamento em estrela
+star_nodes = [node for node, degree in degree_dict.items() if degree == max(degree_dict.values())]
+
+# Verificando se todos os outros nós estão conectados a esse nó central
+if len(star_nodes) == 1 and all(G.has_edge(star_nodes[0], other) for other in degree_dict if other != star_nodes[0]):
+    print("A rede possui um acoplamento em estrela.")
+else:
+    print("A rede não possui um acoplamento em estrela.")
+
+# Verificando acoplamento em clique
+clique = all(G.has_edge(u, v) for u in G.nodes for v in G.nodes if u != v)
+if clique:
+    print("A rede possui um acoplamento em clique.")
+else:
+    print("A rede não possui um acoplamento em clique.")
+
+# Verificando acoplamento em cadeia
+is_chain = sorted(degree_dict.values()) == [1] * (len(degree_dict) - 1) + [2]
+if is_chain:
+    print("A rede possui um acoplamento em cadeia.")
+else:
+    print("A rede não possui um acoplamento em cadeia.")
