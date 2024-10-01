@@ -1,0 +1,49 @@
+Para representar a situação descrita, vamos criar um grafo direcionado (digrafo) onde cada pessoa é um nó e as relações de amizade são representadas por setas. Vamos identificar as relações conforme descrito:
+
+### Relações
+
+1. **Mr. A é amigo de Mrs. B**, mas **B não gosta de A**:
+   - A → B (mas sem uma seta de B para A)
+
+2. **B tem amizade recíproca com C e D**:
+   - B ↔ C
+   - B ↔ D
+
+3. **C considera D um amigo**:
+   - C → D
+
+4. **D enviou pedidos de amizade para E, F, G e H**, mas apenas **G respondeu**:
+   - D → E (sem reciprocidade)
+   - D → F (sem reciprocidade)
+   - D → G (G respondeu)
+   - D → H (sem reciprocidade)
+
+5. **G tem uma relação recíproca com A**:
+   - G ↔ A
+
+### Representação do Grafo
+
+Agora podemos desenhar o grafo baseado nessas relações:
+
+```
+    A
+   ↗ ↘
+  G   B
+  ↖ ↙ ↘
+   C   D
+    ↘ ↙ ↘
+      D   E
+           F
+           |
+           H
+```
+
+### Explicação do Grafo
+
+- A seta de A para B indica que A é amigo de B, mas não há seta de B para A, indicando que B não gosta de A.
+- As setas de B para C e D indicam que B é amiga de ambos.
+- A seta de C para D indica que C considera D como amigo.
+- As setas de D para E, F, G e H indicam que D enviou pedidos de amizade, mas apenas G respondeu, refletido pela seta de D para G.
+- A seta de G para A e vice-versa indica que eles têm uma amizade recíproca.
+
+Esse grafo ilustra as relações de amizade entre as pessoas mencionadas. Se precisar de mais detalhes ou ajustes, fique à vontade para perguntar!
