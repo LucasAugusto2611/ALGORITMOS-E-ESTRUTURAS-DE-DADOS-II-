@@ -1,0 +1,22 @@
+import networkx as nx
+
+# Supondo que você já tenha um grafo G
+G = nx.Graph()
+
+# Adicionando nós e arestas (exemplo)
+edges = [('A1', 'B1'), ('A1', 'B2'), ('A2', 'B1'), ('A3', 'B2'), ('A3', 'B3')]
+G.add_edges_from(edges)
+
+# Identificando os conjuntos
+nodes_U = {n for n in G.nodes if n.startswith('A')}
+nodes_V = {n for n in G.nodes if n.startswith('B')}
+
+# Contando os vizinhos
+neighbors_count = {n: len(list(G.neighbors(n))) for n in G.nodes}
+
+# Identificando os nós com mais vizinhos
+max_neighbors_U = max(nodes_U, key=lambda n: neighbors_count[n])
+max_neighbors_V = max(nodes_V, key=lambda n: neighbors_count[n])
+
+print(f"Nó em U com mais vizinhos: {max_neighbors_U} ({neighbors_count[max_neighbors_U]} vizinhos)")
+print(f"Nó em V com mais vizinhos: {max_neighbors_V} ({neighbors_count[max_neighbors_V]} vizinhos)")
