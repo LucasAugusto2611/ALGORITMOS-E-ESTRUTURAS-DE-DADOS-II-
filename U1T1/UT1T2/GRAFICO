@@ -1,0 +1,31 @@
+
+#DENSIDADE#
+
+import networkx as nx
+
+densidade = nx.density(G)
+print(f"Densidade da rede: {densidade}")
+
+#SUB GRAFICO#
+
+X = 3  
+vizinhos_com_x = [n for n, d in G.degree() if d >= X]
+subgrafo = G.subgraph(vizinhos_com_x)
+
+densidade_subgrafo = nx.density(subgrafo)
+print(f"Densidade do sub-grafo: {densidade_subgrafo}")
+
+
+
+#HISTOGRAMA DE GRAUS#
+
+import matplotlib.pyplot as plt
+
+graus = [d for n, d in G.degree()]
+plt.hist(graus, bins=range(max(graus) + 2), align='left', alpha=0.7)
+plt.title('Histograma dos Graus')
+plt.xlabel('Grau')
+plt.ylabel('Frequência')
+plt.xticks(range(max(graus) + 1))
+plt.grid(axis='y')
+plt.show()
