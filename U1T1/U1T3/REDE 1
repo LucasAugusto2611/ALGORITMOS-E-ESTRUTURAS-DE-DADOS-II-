@@ -1,0 +1,26 @@
+import pandas as pd
+import networkx as nx
+import matplotlib.pyplot as plt
+
+# Carregar os dados
+data = pd.read_csv('medicamentos.csv')
+
+# Criar o grafo
+G1 = nx.Graph()
+
+# Adicionar nós e arestas
+for _, row in data.iterrows():
+    principios = row['principios_ativos'].split(';')  # Ajuste conforme a estrutura dos dados
+    for principio in principios:
+        G1.add_node(row['medicamento'])
+        G1.add_node(principio)
+        G1.add_edge(row['medicamento'], principio)
+
+# Calcular a assortatividade pela categoria regulatória
+assortativity = nx.degree_assortativity_coefficient(G1, x='categoria_regulatoria')
+
+# Visualizar
+nx.draw(G1, with_labels=True)
+plt.title('Co-ocorrência de Princípios Ativos')
+plt.savefig('figures/rede1.png')
+plt.show()
