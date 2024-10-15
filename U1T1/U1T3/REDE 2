@@ -1,0 +1,19 @@
+# Criar o grafo bipartido
+B = nx.Graph()
+
+# Adicionar nós e arestas
+for _, row in data.iterrows():
+    B.add_node(row['medicamento'], bipartite=0)
+    principios = row['principios_ativos'].split(';')
+    for principio in principios:
+        B.add_node(principio, bipartite=1)
+        B.add_edge(row['medicamento'], principio)
+
+# Calcular assortatividade
+
+# Visualizar
+pos = nx.bipartite_layout(B, nodes=[row['medicamento'] for _, row in data.iterrows()])
+nx.draw(B, pos, with_labels=True)
+plt.title('Grafo Bipartido de Medicamentos e Princípios Ativos')
+plt.savefig('figures/rede2.png')
+plt.show()
