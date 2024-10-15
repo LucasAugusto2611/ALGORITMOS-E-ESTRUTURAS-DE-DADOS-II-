@@ -1,0 +1,20 @@
+# Criar o grafo
+G3 = nx.Graph()
+
+# Adicionar nós e arestas
+for _, row in data.iterrows():
+    principios = row['principios_ativos'].split(';')
+    for principio in principios:
+        G3.add_node(row['medicamento'])
+        G3.add_node(row['empresa'])
+        G3.add_edge(row['medicamento'], principio)
+        G3.add_edge(row['empresa'], principio)
+
+# Calcular a assortatividade pela empresa
+assortativity_empresa = nx.degree_assortativity_coefficient(G3, x='empresa')
+
+# Visualizar
+nx.draw(G3, with_labels=True)
+plt.title('Co-ocorrência por Empresa')
+plt.savefig('figures/rede3.png')
+plt.show()
