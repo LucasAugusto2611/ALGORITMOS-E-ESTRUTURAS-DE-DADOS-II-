@@ -26,7 +26,7 @@ A distância entre as paradas de ônibus e a UFRN foi calculada usando a bibliot
 ## Visualização
 Os resultados foram visualizados em um gráfico que mostra a localização das paradas de ônibus em relação à UFRN, destacando as paradas mais próxima e mais distante.
 
-![Gráfico das Paradas de Ônibus](U1T4/paradas ufrn.png) <!-- Substitua pelo caminho da imagem gerada -->
+![Gráfico das Paradas de Ônibus](U1T4/paradas%20ufrn.png) <!-- Substitua pelo caminho da imagem gerada -->
 
 ## Ferramentas e Bibliotecas Utilizadas
 - [OSMnx](https://osmnx.readthedocs.io/)
