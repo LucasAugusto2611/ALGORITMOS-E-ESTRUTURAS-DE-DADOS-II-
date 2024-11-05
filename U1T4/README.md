@@ -29,3 +29,6 @@ A distância entre as paradas de ônibus e a UFRN foi calculada usando a bibliot
 - [Matplotlib](https://matplotlib.org/)
 - [Shapely](https://shapely.readthedocs.io/)
 
+  Lucas Augusto Salviano Camara
+  turma1
+
