@@ -4,7 +4,10 @@ Este repositório tem como objetivo sugerir os melhores pontos para a instalaç�
 
 ## Objetivo
 
-O objetivo deste projeto é identificar locais estratégicos nos bairros próximos à UFRN onde a demanda por transporte rápido e eficiente é alta. As sugestões de pontos incluem áreas com grande fluxo de estudantes, comércio local, acessibilidade a transportes públicos e proximidade com o campus.
+O objetivo deste projeto é identificar locais estratégicos nos bairros próximos à UFRN onde a demanda por transporte rápido e eficiente é alta. As sugestões de pontos incluem áreas com grande fluxo de estudantes, comércio local, acessibilidade a transportes públicos e proximidade com o campus.- 
+- Mapear os bairros próximos à UFRN.
+- Calcular as métricas de cada bairro, incluindo densidade populacional, índices de criminalidade, e infraestrutura.
+- Analisar o "core" dos bairros
 
 ## Melhores Locais para Instalar Docks de Bicicleta
 
