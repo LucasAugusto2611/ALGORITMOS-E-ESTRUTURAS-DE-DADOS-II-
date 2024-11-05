@@ -1,6 +1,0 @@
-! pip install osmnx
-import osmnx as ox
-import matplotlib.pyplot as plt
-lugar="natal,rio grande do norte"
-rede=ox.graph_from_place(lugar)
-fig,ax=ox.plot_graph(rede)
