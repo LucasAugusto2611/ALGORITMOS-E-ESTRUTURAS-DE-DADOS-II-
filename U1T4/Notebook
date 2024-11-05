@@ -1,7 +1,5 @@
-!pip install osmnx
 import osmnx as ox
-import geopandas as gpd
-import matplotlib.pyplot as plt
+import folium
 from shapely.geometry import Point
 
 # Define a localização da UFRN
@@ -22,24 +20,40 @@ parada_mais_proxima = pontos_onibus.loc[pontos_onibus['distance_to_ufrn'].idxmin
 # Encontra a parada mais distante
 parada_mais_longe = pontos_onibus.loc[pontos_onibus['distance_to_ufrn'].idxmax()]
 
-# Mostra as paradas mais próxima e mais distante
-print("A parada de ônibus mais próxima da UFRN é:")
-print(parada_mais_proxima)
+# Cria o mapa centrado na UFRN
+mapa = folium.Map(location=[ufrn_location.y, ufrn_location.x], zoom_start=13)
 
-print("\nA parada de ônibus mais distante da UFRN é:")
-print(parada_mais_longe)
+# Adiciona um marcador para a UFRN
+folium.Marker(
+    location=[ufrn_location.y, ufrn_location.x],
+    popup="UFRN",
+    icon=folium.Icon(color="blue", icon="university", prefix="fa")
+).add_to(mapa)
 
-# Plota os pontos de ônibus e a UFRN
-fig, ax = plt.subplots(figsize=(10, 10))
-pontos_onibus.plot(ax=ax, color='red', markersize=5, label='Paradas de Ônibus')
-ax.scatter(*ufrn_location.xy, color='blue', marker='o', s=100, label='UFRN')
+# Adiciona marcadores para as paradas de ônibus
+for _, parada in pontos_onibus.iterrows():
+    folium.CircleMarker(
+        location=[parada.geometry.y, parada.geometry.x],
+        radius=3,
+        color="red",
+        fill=True,
+        fill_color="red",
+        fill_opacity=0.6
+    ).add_to(mapa)
 
-# Destaca as paradas mais próxima e mais distante
-ax.scatter(*parada_mais_proxima.geometry.xy, color='green', marker='o', s=150, label='Mais Próxima')
-ax.scatter(*parada_mais_longe.geometry.xy, color='orange', marker='o', s=150, label='Mais Distante')
+# Marca a parada mais próxima com um ícone especial
+folium.Marker(
+    location=[parada_mais_proxima.geometry.y, parada_mais_proxima.geometry.x],
+    popup="Parada Mais Próxima",
+    icon=folium.Icon(color="green", icon="check", prefix="fa")
+).add_to(mapa)
 
-ax.legend()
-plt.title(f'Paradas de Ônibus em {lugar} e a UFRN')
-plt.xlabel('Longitude')
-plt.ylabel('Latitude')
-plt.show()
+# Marca a parada mais distante com um ícone especial
+folium.Marker(
+    location=[parada_mais_longe.geometry.y, parada_mais_longe.geometry.x],
+    popup="Parada Mais Distante",
+    icon=folium.Icon(color="orange", icon="times", prefix="fa")
+).add_to(mapa)
+
+# Exibe o mapa
+mapa
