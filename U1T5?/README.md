@@ -43,4 +43,5 @@ A seguir, apresentamos algumas sugestões de bairros e pontos específicos que p
    - **Sugestão de Local:** Próximo à **Avenida Engenheiro Roberto Freire**, que dá acesso ao campus pela **Avenida Nascimento de Castro**.
    - **Vantagem:** Estudantes e moradores de Ponta Negra podem se beneficiar de uma estação de bicicletas para chegar ao campus de forma mais rápida e sustentável.
 
-
+LUCAS AUGUSTO SALVIANO CAMARA 
+TURMA 1
