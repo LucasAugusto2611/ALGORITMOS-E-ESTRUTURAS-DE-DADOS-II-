@@ -24,14 +24,5 @@ O trabalho foi dividido em três partes:
 - As cores dos vértices devem ser relacionadas a um critério de comunidade.
 - O tamanho dos vértices deve ser proporcional a uma métrica de livre escolha.
 
-## Estrutura do Repositório
-- `notebooks/`: Contém os notebooks Jupyter usados para gerar e analisar os dados da rede.
-- `scripts/`: Contém os scripts Python utilizados para processar os dados e gerar as análises.
-- `data/`: Contém os arquivos de entrada (como o arquivo de co-autoria dos professores) e os resultados das análises (como os arquivos GEXF e CSV).
-- `output/`: Contém os arquivos de saída gerados pelo **Gephi**, como as imagens das visualizações.
-
-## Como Rodar o Código
-1. **Clone este repositório** para sua máquina local:
-   ```bash
-   git clone https://github.com/seu-usuario/analise-rede-coautoria-ppgeec.git
+Lucas Augusto Salviano Camara
 
