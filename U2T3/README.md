@@ -107,3 +107,5 @@ Economia obtida em termos de custo total de conexões.
 Ordenação das arestas: O(E * log(E)).
 
 Union-Find: O(E * α(V)), onde α(V) é o inverso da função de Ackermann.
+
+LUCAS AUGUSTO SALVIANO CAMARA TURMA 1
