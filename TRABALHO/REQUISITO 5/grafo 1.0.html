@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visualização Interativa do Grafo</title>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/vis/4.21.0/vis.min.js"></script>
+    <style type="text/css">
+        #grafo { width: 100%; height: 800px; border: 1px solid lightgray; }
+    </style>
+</head>
+<body>
+    <h1>Visualização Interativa do Grafo de Entidades</h1>
+    <div id="grafo"></div>
+
+    <script type="text/javascript">
+        // Entidades extraídas do texto
+        var nodes = new vis.DataSet([
+            {id: 1, label: 'Donald Trump'},
+            {id: 2, label: 'China'},
+            {id: 3, label: 'Estados Unidos'},
+            {id: 4, label: 'União Europeia'},
+            {id: 5, label: 'México'},
+            {id: 6, label: 'Canadá'},
+            {id: 7, label: 'Banco Central Europeu'},
+            {id: 8, label: 'Christine Lagarde'},
+            {id: 9, label: 'Leonel Mattos'},
+            {id: 10, label: 'StoneX'}
+        ]);
+
+        var edges = new vis.DataSet([
+            {from: 1, to: 2, label: 'Críticas'},
+            {from: 1, to: 3, label: 'Presidente'},
+            {from: 1, to: 4, label: 'Tarifas'},
+            {from: 1, to: 5, label: 'Tarifas'},
+            {from: 1, to: 6, label: 'Tarifas'},
+            {from: 2, to: 3, label: 'Relações Comerciais'},
+            {from: 7, to: 8, label: 'Declarações'},
+            {from: 8, to: 5, label: 'Comércio'},
+            {from: 9, to: 10, label: 'Análise'}
+        ]);
+
+        // Configuração dos dados do grafo
+        var data = {
+            nodes: nodes,
+            edges: edges
+        };
+
+        // Opções de visualização
+        var options = {
+            nodes: {
+                shape: 'dot',
+                size: 16,
+                font: {
+                    size: 14
+                },
+                borderWidth: 2
+            },
+            edges: {
+                font: {
+                    align: 'middle'
+                },
+                arrows: {
+                    to: {enabled: true, scaleFactor: 1}
+                }
+            },
+            physics: {
+                enabled: true
+            }
+        };
+
+        // Inicialização do grafo
+        var container = document.getElementById('grafo');
+        var network = new vis.Network(container, data, options);
+    </script>
+</body>
+</html>
