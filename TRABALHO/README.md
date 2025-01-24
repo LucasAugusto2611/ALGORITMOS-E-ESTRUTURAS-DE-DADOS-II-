@@ -53,7 +53,7 @@ Este projeto tem como objetivo explorar as relações linguísticas em textos ut
 - **Repositório GitHub:** https://github.com/LucasAugusto2611/ALGORITMOS-E-ESTRUTURAS-DE-DADOS-II-/new/main/TRABALHO
 - **Podcast explicativo:** https://notebooklm.google.com/notebook/90a0a682-2ac4-48b1-ad3b-3c1a54dbdd8c/audio
 - **Grafo em produção:** https://github.com/LucasAugusto2611/ALGORITMOS-E-ESTRUTURAS-DE-DADOS-II-/blob/main/TRABALHO/REQUISITO%205/gephi.gephi
-
+- **Artigo do Medium:** https://medium.com/@lucascamara2611/análise-de-textos-e-visualização-de-grafos-um-estudo-de-caso-com-o-gephi-e-spacy-dbbf73cbbf75
 
 LUCAS AUGUSTO SALVIANO CAMARA 
 TURMA 1
