@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d4" for="node" attr.name="community" attr.type="long"/>
+<key id="d3" for="node" attr.name="closeness_centrality" attr.type="double"/>
+<key id="d2" for="node" attr.name="betweenness_centrality" attr.type="double"/>
+<key id="d1" for="node" attr.name="degree_centrality" attr.type="double"/>
+<key id="d0" for="node" attr.name="degree" attr.type="long"/>
+<graph edgedefault="undirected"><node id="União Europeia">
+  <data key="d0">3</data>
+  <data key="d1">3.0</data>
+  <data key="d2">0.0</data>
+  <data key="d3">1.0</data>
+  <data key="d4">0</data>
+</node>
+<node id="Fórum Econômico Mundial">
+  <data key="d0">1</data>
+  <data key="d1">1.0</data>
+  <data key="d2">0.0</data>
+  <data key="d3">1.0</data>
+  <data key="d4">0</data>
+</node>
+<edge source="União Europeia" target="Fórum Econômico Mundial"/>
+<edge source="União Europeia" target="União Europeia"/>
+</graph></graphml>
